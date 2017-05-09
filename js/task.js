@@ -1,4 +1,6 @@
-addTask()
+
+addTask();
+deleteTask();
 
 function addTask() {
   $('.add-new-task').submit(function() {
@@ -10,5 +12,17 @@ function addTask() {
       });
     }
     return false; // Ensure form does not submit twice
+  });
+}
+
+function deleteTask() {
+  $('.delete-button').click(function() {
+    var currentElement = $(this);
+    var id = $(this).attr('id');
+    $.post('includes/delete_task.php', { task_id: id }, function() {
+      currentElement.parent().fadeOut("fast", function() {
+        $(this).remove();
+      });
+    });
   });
 }
