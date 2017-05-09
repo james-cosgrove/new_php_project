@@ -9,6 +9,6 @@ function addTask() {
         $(data).appendTo('.task-list ul').hide().fadeIn();
       });
     }
-    return false: // Ensure form does not submit twice
+    return false; // Ensure form does not submit twice
   });
 }

@@ -12,7 +12,7 @@
           <?php
             require("includes/connect.php");
 
-            $query = mysqli_query("SELECT * FROM tasks ORDER BY date ASC, time ASC");
+            $query = mysqli_query($conn, "SELECT * FROM tasks ORDER BY date ASC, time ASC");
             $numrows = mysqli_fetch_assoc($query);
 
             if($numrows>0) {
