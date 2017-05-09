@@ -9,7 +9,23 @@
     <div class="wrap">
       <div class="task-list">
         <ul>
-            <?php require("includes/connect.php"); ?>
+          <?php
+            require("includes/connect.php");
+
+            $query = mysqli_query("SELECT * FROM tasks ORDER BY date ASC, time ASC");
+            $numrows = mysqli_fetch_assoc($query);
+
+            if($numrows>0) {
+              while($row = mysqli_fetch_assoc($query)) {
+                $task_id = $row['id'];
+                $task_name = $row['task'];
+                echo '<li>
+                        <span>'.$task_name.'</span>
+                        <img id="'.$task_id.'" class="delete-button" width="10px" src="images/close.svg" />
+                      </li>';
+              }
+            }
+          ?>
         </ul>
       </div>
       <form class="add-new-task" autocomplete="off">
