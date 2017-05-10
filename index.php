@@ -12,11 +12,10 @@
           <?php
             require("includes/connect.php");
 
-            $query = mysqli_query($conn, "SELECT * FROM tasks ORDER BY date ASC, time ASC");
-            $numrows = mysqli_fetch_assoc($query);
+            $result = mysqli_query($conn, "SELECT * FROM tasks ORDER BY date ASC, time ASC");
 
-            if($numrows>0) {
-              while($row = mysqli_fetch_assoc($query)) {
+            if($result->num_rows>0) {
+              while($row = mysqli_fetch_assoc($result)) {
                 $task_id = $row['id'];
                 $task_name = $row['task'];
                 echo '<li>
@@ -24,7 +23,9 @@
                         <img id="'.$task_id.'" class="delete-button" width="10px" src="images/close.svg" />
                       </li>';
               }
+
             }
+
           ?>
         </ul>
       </div>
