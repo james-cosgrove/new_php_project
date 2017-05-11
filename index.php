@@ -30,7 +30,8 @@
         </ul>
       </div>
       <form id="add-new-task" autocomplete="off">
-        <input type="text" name="new-task" placeholder="Add new item...">
+        <input type="text" name="new-task" placeholder="New Task">
+        <button type="submit" name="button">Add</button>
       </form>
     </div>
   </body>
