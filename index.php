@@ -3,12 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title>Simple To-Do List</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <div class="wrap">
-      <div class="task-list">
+      <div id="task-list">
         <ul>
+
           <?php
             require("includes/connect.php");
 
@@ -23,13 +24,12 @@
                         <img id="'.$task_id.'" class="delete-button" width="10px" src="images/close.svg" />
                       </li>';
               }
-
             }
-
           ?>
+
         </ul>
       </div>
-      <form class="add-new-task" autocomplete="off">
+      <form id="add-new-task" autocomplete="off">
         <input type="text" name="new-task" placeholder="Add new item...">
       </form>
     </div>
